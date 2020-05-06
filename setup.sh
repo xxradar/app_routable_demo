@@ -2,7 +2,7 @@
 
 
 git clone https://github.com/xxradar/app_routable_demo.git
-cd ./app-routable-demo
+cd ./app_routable_demo
 kubectl create ns app-routable-demo
 kubectl apply -n app-routable-demo -f ./nginx-conf-map.yaml
 kubectl apply -n app-routable-demo -f ./zone_svc.yaml
