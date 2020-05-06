@@ -28,7 +28,7 @@ spec:
             - key: nginx.conf
               path: nginx.conf
       - name: log
-        emptyDir: {}apiVersion: apps/v1beta1
+        emptyDir: {}
 ---
 apiVersion: apps/v1beta1
 kind: Deployment
@@ -60,7 +60,7 @@ spec:
             - key: nginx.conf
               path: nginx.conf
       - name: log
-        emptyDir: {}apiVersion: apps/v1beta1
+        emptyDir: {}
 ---
 apiVersion: apps/v1beta1
 kind: Deployment
@@ -93,7 +93,6 @@ spec:
               path: nginx.conf
       - name: log
         emptyDir: {}
-apiVersion: apps/v1beta1
 ---
 apiVersion: apps/v1beta1
 kind: Deployment
@@ -125,7 +124,7 @@ spec:
             - key: nginx.conf
               path: nginx.conf
       - name: log
-        emptyDir: {}apiVersion: apps/v1beta1
+        emptyDir: {}
 ---
 apiVersion: apps/v1beta1
 kind: Deployment
