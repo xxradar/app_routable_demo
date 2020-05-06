@@ -1,13 +1,13 @@
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: nginx-zone2
+  name: nginxtest
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: nginx-zone2
+        app: nginx
     spec:
       containers:
       - name: nginx
