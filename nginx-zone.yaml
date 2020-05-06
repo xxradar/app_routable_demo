@@ -1,9 +1,14 @@
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-zone1
+  labels:
+    app: nginx-zone1
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-zone1
   template:
     metadata:
       labels:
@@ -30,12 +35,17 @@ spec:
       - name: log
         emptyDir: {}
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-zone2
+  labels:
+    app: nginx-zone2
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-zone2
   template:
     metadata:
       labels:
@@ -62,12 +72,17 @@ spec:
       - name: log
         emptyDir: {}
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-zone3
+  labels:
+    app: nginx-zone3
 spec:
   replicas: 3
+  selector:
+    matchLabels:
+      app: nginx-zone3
   template:
     metadata:
       labels:
@@ -94,12 +109,17 @@ spec:
       - name: log
         emptyDir: {}
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-zone4
+  labels:
+    app: nginx-zone4
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-zone4
   template:
     metadata:
       labels:
@@ -126,12 +146,17 @@ spec:
       - name: log
         emptyDir: {}
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-zone5
+  labels:
+    app: nginx-zone5
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-zone5
   template:
     metadata:
       labels:
