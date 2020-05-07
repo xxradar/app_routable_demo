@@ -79,7 +79,7 @@ metadata:
   labels:
     app: nginx-zone3
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: nginx-zone3
