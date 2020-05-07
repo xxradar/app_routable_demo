@@ -9,6 +9,6 @@ kubectl apply -n app-routable-demo -f ./nginx-zone.yaml
 kubectl get po -n app-routable-demo
 
 echo 'Run for example: kubectl run -it -n app-routable-demo --rm --image xxradar/hackon mycurler -- bash'
-echo 'Issue foe example curl:  curl -v -H "Cookie: loc=client" http://zone1/app3'
+echo 'Issue for example:  curl -v -H "Cookie: loc=client" http://zone1/app3'
 
 
