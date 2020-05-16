@@ -30,7 +30,7 @@ data:
     #tcp_nopush     on;
 
     keepalive_timeout  65;
-
+    proxy_http_version 1.1;
     #gzip  on;
 
     include /etc/nginx/conf.d/*.conf;
