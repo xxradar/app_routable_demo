@@ -1,6 +1,6 @@
 # app_routable_demo
 
-This project is learn and better understand routing in K8S with an easy to configure app.
+This project is about learning and better understanding routing in K8S with an easy to configure app.
 
 ```
 git clone https://github.com/xxradar/app_routable_demo.git
