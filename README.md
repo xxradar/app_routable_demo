@@ -1,4 +1,4 @@
-# app_routable_demo
+# Application routing demo
 
 This project is about learning and better understanding routing in K8S with an easy to configure app.
 
