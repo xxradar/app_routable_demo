@@ -9,5 +9,5 @@ cd ./app_routable_demo
 ```
 
 
-![App Routable demo](img.jpg?raw=true "App Routable demo")
+![App Routable demo](img.png "App Routable demo")
 
