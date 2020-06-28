@@ -14,6 +14,6 @@ This is the layout of the application
 
 Navigate by modifying the parameters in the **curl** command
 ```
-kubectl run -it -n app-routable-demo --rm --image xxradar/hackon mycurler -- bash'
+kubectl run -it -n app-routable-demo --rm --image xxradar/hackon mycurler -- bash
        curl -v -H "Cookie: loc=client" http://zone1/app3'
 ```
