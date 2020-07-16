@@ -1,0 +1,154 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny-ingress
+spec:
+  podSelector: {}
+  policyTypes:
+  - Ingress
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: access-zone1
+spec:
+  podSelector:
+    matchLabels:
+      app: nginx-zone1
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: siege
+    ports:
+    - protocol: TCP
+      port: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: access-zone2
+spec:
+  podSelector:
+    matchLabels:
+      app: nginx-zone2
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: nginx-zone1
+    ports:
+    - protocol: TCP
+      port: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: access-zone3
+spec:
+  podSelector:
+    matchLabels:
+      app: nginx-zone3
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: nginx-zone1
+    ports:
+    - protocol: TCP
+      port: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: access-zone4
+spec:
+  podSelector:
+    matchLabels:
+      app: nginx-zone4
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: nginx-zone2
+    - podSelector:
+        matchLabels:
+          app: nginx-zone3
+    ports:
+    - protocol: TCP
+      port: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: access-zone5
+spec:
+  podSelector:
+    matchLabels:
+      app: nginx-zone5
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: nginx-zone2
+    - podSelector:
+        matchLabels:
+          app: nginx-zone3
+    ports:
+    - protocol: TCP
+      port: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: access-zone6
+spec:
+  podSelector:
+    matchLabels:
+      app: echoserver-1
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: nginx-zone4
+    - podSelector:
+        matchLabels:
+          app: nginx-zone5
+    ports:
+    - protocol: TCP
+      port: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: access-zone7
+spec:
+  podSelector:
+    matchLabels:
+      app: echoserver-2
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: nginx-zone4
+    - podSelector:
+        matchLabels:
+          app: nginx-zone5
+    ports:
+    - protocol: TCP
+      port: 80
