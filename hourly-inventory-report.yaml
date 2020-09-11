@@ -1,0 +1,12 @@
+apiVersion: projectcalico.org/v3
+kind: GlobalReport
+metadata:
+  name: hourly-inventory-report
+  labels:
+    deployment: production
+spec:
+  reportType: inventory
+  endpoints:
+    namespaces:
+      names: ["app-routable-demo", "default"]
+  schedule: 0 * * * *
