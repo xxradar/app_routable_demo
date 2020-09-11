@@ -1,0 +1,10 @@
+apiVersion: projectcalico.org/v3
+kind: GlobalReport
+metadata:
+  name: hourly-networkaccess-report
+spec:
+  reportType: network-access
+  endpoints:
+    namespaces:
+      names: ["app-routable-demo", "demo"]
+  schedule: 0 * * * *
