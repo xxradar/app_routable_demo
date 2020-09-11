@@ -6,5 +6,5 @@ spec:
   reportType: network-access
   endpoints:
     namespaces:
-      names: ["app-routable-demo", "demo"]
+      names: ["app-routable-demo", "default"]
   schedule: 0 * * * *
