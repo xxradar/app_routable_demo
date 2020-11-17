@@ -6,7 +6,7 @@ This project is about learning and better understanding routing in K8S with an e
 git clone https://github.com/xxradar/app_routable_demo.git
 cd ./app_routable_demo
 ./setup.sh
-watch kubectl get po -napp-routable-demo
+watch kubectl get po -n app-routable-demo
 ```
 
 This is the layout of the application
