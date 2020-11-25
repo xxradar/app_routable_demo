@@ -1,0 +1,189 @@
+
+apiVersion: projectcalico.org/v3
+kind: Tier
+metadata:
+  name: app-routable-demo
+spec:
+  order: 300
+---
+apiVersion: projectcalico.org/v3
+kind: NetworkPolicy
+metadata:
+  name: app-routable-demo.siege
+  namespace: app-routable-demo
+spec:
+  tier: app-routable-demo
+  order: 0
+  selector: app == "siege"
+  serviceAccountSelector: ''
+  egress:
+    - action: Allow
+      protocol: TCP
+      source: {}
+      destination:
+        selector: app == "nginx-zone1"
+        ports:
+          - '80'
+          - '443'
+    - action: Allow
+      protocol: UDP
+      source: {}
+      destination:
+        namespaceSelector: all()
+        ports:
+          - '53'
+  types:
+    - Egress
+---
+apiVersion: projectcalico.org/v3
+kind: NetworkPolicy
+metadata:
+  name: app-routable-demo.access-zone1
+  namespace: app-routable-demo
+spec:
+  tier: app-routable-demo
+  order: 100
+  selector: app == "nginx-zone1"
+  serviceAccountSelector: ''
+  ingress:
+    - action: Allow
+      protocol: TCP
+      source:
+        selector: app == "siege"
+      destination:
+        ports:
+          - '80'
+          - '443'
+  egress:
+    - action: Allow
+      protocol: TCP
+      source: {}
+      destination:
+        selector: app == "nginx-zone2"||app == "nginx-zone3"
+        ports:
+          - '80'
+          - '443'
+    - action: Allow
+      protocol: UDP
+      source: {}
+      destination:
+        namespaceSelector: all()
+        ports:
+          - '53'
+  types:
+    - Ingress
+    - Egress
+---
+apiVersion: projectcalico.org/v3
+kind: NetworkPolicy
+metadata:
+  name: app-routable-demo.access-zone2-3
+  namespace: app-routable-demo
+spec:
+  tier: app-routable-demo
+  order: 200
+  selector: app == "nginx-zone2"||app == "nginx-zone3"
+  serviceAccountSelector: ''
+  ingress:
+    - action: Allow
+      protocol: TCP
+      source:
+        selector: app == "nginx-zone1"
+      destination:
+        ports:
+          - '80'
+          - '443'
+  egress:
+    - action: Allow
+      protocol: TCP
+      source: {}
+      destination:
+        selector: app == "nginx-zone4"||app == "nginx-zone5"
+        ports:
+          - '80'
+          - '443'
+    - action: Allow
+      protocol: UDP
+      source: {}
+      destination:
+        namespaceSelector: all()
+        ports:
+          - '53'
+  types:
+    - Ingress
+    - Egress
+---
+apiVersion: projectcalico.org/v3
+kind: NetworkPolicy
+metadata:
+  name: app-routable-demo.access-zone4-5
+  namespace: app-routable-demo
+spec:
+  tier: app-routable-demo
+  order: 200
+  selector: app == "nginx-zone4"||app == "nginx-zone5"
+  serviceAccountSelector: ''
+  ingress:
+    - action: Allow
+      protocol: TCP
+      source:
+        selector: app == "nginx-zone2"||app == "nginx-zone3"
+      destination:
+        ports:
+          - '80'
+          - '443'
+  egress:
+    - action: Allow
+      protocol: TCP
+      source: {}
+      destination:
+        selector: app == "echoserver-1"||app == "echoserver-2"
+        ports:
+          - '80'
+          - '443'
+    - action: Allow
+      protocol: UDP
+      source: {}
+      destination:
+        namespaceSelector: all()
+        ports:
+          - '53'
+  types:
+    - Ingress
+    - Egress
+---
+apiVersion: projectcalico.org/v3
+kind: NetworkPolicy
+metadata:
+  name: app-routable-demo.access-zone6-7
+  namespace: app-routable-demo
+spec:
+  tier: app-routable-demo
+  order: 300
+  selector: app == "echoserver-1"||app == "echoserver-2"
+  serviceAccountSelector: ''
+  ingress:
+    - action: Allow
+      protocol: TCP
+      source:
+        selector: app == "nginx-zone4"||app == "nginx-zone5"
+      destination:
+        ports:
+          - '80'
+          - '443'
+  types:
+    - Ingress
+---
+apiVersion: projectcalico.org/v3
+kind: NetworkPolicy
+metadata:
+  name: app-routable-demo.deny-all-app-routable-demo
+  namespace: app-routable-demo
+spec:
+  tier: app-routable-demo
+  order: 400
+  selector: ''
+  serviceAccountSelector: ''
+  types:
+    - Ingress
+    - Egress
