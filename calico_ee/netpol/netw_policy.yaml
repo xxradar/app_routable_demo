@@ -4,7 +4,7 @@ kind: Tier
 metadata:
   name: app-routable-demo
 spec:
-  order: 300
+  order: 500
 ---
 apiVersion: projectcalico.org/v3
 kind: NetworkPolicy
