@@ -10,7 +10,7 @@ watch kubectl get po -n app-routable-demo
 ```
 
 This is the layout of the application
-![App Routable demo](img.png "App Routable demo")
+![App Routable demo](images/img.png "App Routable demo")
 
 Navigate by modifying the parameters in the **curl** command
 ```
