@@ -11,7 +11,8 @@ spec:
       - tlsapp1.dockersec.me
     secretName: tlscertsapp1
   rules:
-  - http:
+  - host: tlsapp1.dockersec.me
+    http:
       paths:
       - path: /
         pathType: Prefix
