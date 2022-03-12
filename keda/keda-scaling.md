@@ -12,7 +12,7 @@ spec:
   - type: cpu
     metadata:
       type: AverageValue
-      value: "50"
+      value: "50m"
 EOF
 ```
 
