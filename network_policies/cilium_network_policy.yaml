@@ -1,0 +1,11 @@
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+metadata:
+  name: "cilium-ingress"
+spec:
+  endpointSelector:
+    matchLabels:
+      app: nginx-zone1
+  ingress:
+    - fromEntities:
+      - ingress
