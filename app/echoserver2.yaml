@@ -18,5 +18,5 @@ spec:
       - name: echoserver-2
         image: mendhak/http-https-echo
         ports:
-        - containerPort: 80
-        - containerPort: 443
+        - containerPort: 8080
+        - containerPort: 8443
