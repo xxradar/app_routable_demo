@@ -169,8 +169,8 @@ spec:
         selector: app == "nginx-zone4"||app == "nginx-zone5"
       destination:
         ports:
-          - '80'
-          - '443'
+          - '8080'
+          - '8443'
   types:
     - Ingress
 ---
