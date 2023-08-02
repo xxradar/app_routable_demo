@@ -1,6 +1,7 @@
 # Application routing demo
 
-This project is about learning and better understanding routing and proxying in K8S with an easy to configure app. 
+This project is about learning and better understanding routing and proxying in K8S with an easy to configure app. <br>
+The backends in this setup are based on [https://hub.docker.com/r/mendhak/http-https-echo](https://hub.docker.com/r/mendhak/http-https-echo)
 
 ```
 git clone https://github.com/xxradar/app_routable_demo.git
