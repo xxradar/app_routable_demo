@@ -82,9 +82,11 @@ spec:
   - name: echo-http
     port: 80
     protocol: TCP
+    targetPort: 8080
   - name: echo-https
     port: 443
     protocol: TCP
+    targetPort: 8443
   selector:
     app: echoserver-1
 ---
@@ -97,9 +99,11 @@ spec:
   - name: echo-http
     port: 80
     protocol: TCP
+    targetPort: 8080
   - name: echo-https
     port: 443
     protocol: TCP
+    targetPort: 8443
   selector:
     app: echoserver-2
 
