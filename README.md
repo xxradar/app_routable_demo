@@ -1,4 +1,5 @@
 # Application routing demo
+
 [comment] test
 
 This project is about learning and better understanding routing and proxying in K8S with an easy to configure app. <br>
