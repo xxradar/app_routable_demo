@@ -1,4 +1,10 @@
 # Application routing demo
+
+
+<!-- This will NOT show in the rendered Markdown.
+It will be visible when viewing the raw file or editing. -->
+
+
 This project is about learning and better understanding routing and proxying in K8S with an easy to configure app. <br>
 The backends in this setup are based on [https://hub.docker.com/r/mendhak/http-https-echo](https://hub.docker.com/r/mendhak/http-https-echo)<br>
 
