@@ -1,0 +1,50 @@
+default:
+    iac:
+        enabled: true
+        pullRequest:
+            auditMode: false
+            commentOnlyHighAndCritical: false
+            comments: true
+        scan:
+            autofix: false
+            checkov: true
+            checkovModuleDownload: false
+            cloudformation: true
+            dockerfile: true
+            exceptions: []
+            exitConditions:
+                any:
+                    - attribute: severity
+                      operator: '>'
+                      threshold: 500
+                      value: critical
+                    - attribute: severity
+                      operator: '>'
+                      threshold: 500
+                      value: high
+                enabled: true
+            helm: true
+            kubernetes: true
+            kustomize: true
+            opal: true
+            terraform: true
+            terraformPlan: true
+            tfsec: true
+    sca:
+        enabled: true
+        pullRequest:
+            auditMode: true
+            commentOnlyHighAndCritical: false
+            comments: false
+        scan:
+            acf: false
+            acfLocations: 5
+            acfLocationsFull: []
+            exceptions: []
+            gitHistory: false
+            licenseDetection: false
+            linesOfCode: true
+            sast: true
+            scr: true
+            secret: true
+            vulnEvaluation: true
