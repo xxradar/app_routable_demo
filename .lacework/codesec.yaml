@@ -16,11 +16,11 @@ default:
                 any:
                     - attribute: severity
                       operator: '>'
-                      threshold: 500
+                      threshold: 5
                       value: critical
                     - attribute: severity
                       operator: '>'
-                      threshold: 500
+                      threshold: 5
                       value: high
                 enabled: true
             helm: true
